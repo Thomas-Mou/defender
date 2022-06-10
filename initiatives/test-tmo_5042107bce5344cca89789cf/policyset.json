@@ -1,0 +1,62 @@
+{
+ "properties": {
+  "displayName": "test-tmo",
+  "policyType": "Custom",
+  "metadata": {
+   "category": "Federated-Chanel-Policies",
+   "parameterScopes": {
+    "resourceGroupLocation": "/providers/Microsoft.Management/managementGroups/GLOBAL_TEST",
+    "eventHubDetails": "/providers/Microsoft.Management/managementGroups/GLOBAL_TEST"
+   },
+   "createdBy": "78635b2e-1bc2-4109-8c5c-ca49474d18a6",
+   "createdOn": "2022-06-10T12:09:59.1947263Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "Resource group name": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Resource group name"
+    },
+    "defaultValue": "rg-defender-conf-prd"
+   },
+   "Resource group location": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Resource group location"
+    },
+    "defaultValue": "West Europe"
+   },
+   "Event Hub details": {
+    "type": "string",
+    "metadata": {
+     "displayName": "Event Hub details"
+    },
+    "defaultValue": "/subscriptions/ec058181-b853-4412-8120-a9da70c98fac/resourceGroups/rg-logmgmt-we1-prd/providers/Microsoft.EventHub/namespaces/eventhub-logmgmt-we1-prd/eventhubs/evhub-logmgmt-az-defender-we1-prd/authorizationrules/defenderwrite"
+   }
+  },
+  "policyDefinitions": [
+   {
+    "policyDefinitionReferenceId": "Deploy export to Event Hub for Azure Security Center data_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cdfcce10-4578-4ecd-9703-530938e4abcb",
+    "parameters": {
+     "resourceGroupName": {
+      "value": "[parameters('Resource group name')]"
+     },
+     "resourceGroupLocation": {
+      "value": "[parameters('Resource group location')]"
+     },
+     "eventHubDetails": {
+      "value": "[parameters('Event Hub details')]"
+     }
+    },
+    "groupNames": []
+   }
+  ],
+  "policyDefinitionGroups": []
+ },
+ "id": "/providers/Microsoft.Management/managementGroups/GLOBAL_TEST/providers/Microsoft.Authorization/policySetDefinitions/5042107bce5344cca89789cf",
+ "type": "Microsoft.Authorization/policySetDefinitions",
+ "name": "5042107bce5344cca89789cf"
+}
